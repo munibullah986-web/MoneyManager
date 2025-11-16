@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Financial Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-input, .form-button {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .form-button {
+            background-color: #3182ce;
+            color: white;
+            cursor: pointer;
+        }
+        .form-button:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl text-center mb-6">Freelancer Financial Tracker</h1>
+
+        <!-- Add Income Form -->
+        <div class="mb-8">
+            <h2 class="text-2xl">Add Income</h2>
+            <form id="income-form" class="space-y-4">
+                <input type="number" id="income-amount" class="form-input w-full" placeholder="Amount" required />
+                <input type="text" id="income-source" class="form-input w-full" placeholder="Source" required />
+                <select id="income-category" class="form-input w-full">
+                    <option value="Salary">Salary</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="date" id="income-date" class="form-input w-full" required />
+                <button type="submit" class="form-button w-full">Add Income</button>
+            </form>
+        </div>
+
+        <!-- Add Expense Form -->
+        <div class="mb-8">
+            <h2 class="text-2xl">Add Expense</h2>
+            <form id="expense-form" class="space-y-4">
+                <input type="number" id="expense-amount" class="form-input w-full" placeholder="Amount" required />
+                <input type="text" id="expense-description" class="form-input w-full" placeholder="Description" required />
+                <select id="expense-category" class="form-input w-full">
+                    <option value="Rent">Rent</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+                <input type="date" id="expense-date" class="form-input w-full" required />
+                <button type="submit" class="form-button w-full">Add Expense</button>
+            </form>
+        </div>
+
+        <!-- Display Financial Summary -->
+        <div id="financial-summary" class="mb-8">
+            <h2 class="text-2xl">Your Financial Summary</h2>
+            <table id="financial-table" class="w-full border-collapse border border-gray-200 mt-4">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="p-3 border-b text-left">Date</th>
+                        <th class="p-3 border-b text-left">Category</th>
+                        <th class="p-3 border-b text-left">Amount</th>
+                        <th class="p-3 border-b text-left">Description</th>
+                    </tr>
+                </thead>
+                <tbody id="financial-list">
+                    <!-- Financial data will populate here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Display Totals -->
+        <div id="totals" class="mb-8">
+            <h3>Total Income: $<span id="total-income">0</span></h3>
+            <h3>Total Expenses: $<span id="total-expenses">0</span></h3>
+            <h3>Balance: $<span id="balance">0</span></h3>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
